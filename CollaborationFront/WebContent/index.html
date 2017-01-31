@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body ng-controller="UserController as ctrl">
+<header>
+<!-- <div class="container">
+ --><img src="Images/logo3.jpg" width="200" height="100" class="logo" id="logo">
+ 
+ <div class="btn-group">
+ <button type="button"  class="btn btn-default dropdown-toggle" data-toggle="dropdown"><a href="#/home" style="text-decoration:none;color: black">
+    Home</a>  </button>
+  </div>
+<!--  
+ <div class="btn-group" >
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Groups <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createforum">Create Group</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">All Groups</a></li>
+      </ul>
+</div> -->
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Blogs <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createblog">Create Blog</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#/blogs">Read Blogs</a></li>
+      </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Events <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createevent">Create Event</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#/eventhome">All Event</a></li>
+      </ul>
+</div>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Jobs <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+<!--     <li><a href="#/createjob">Post a Job</a></li>
+ -->        <li role="separator" class="divider"></li>
+    <li><a href="#/openJobs">All Jobs</a></li>
+      </ul>
+</div>
+
+  <span ng-show="IsLoggedIn=='true'">
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Friends <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  
+    <li ng-controller="FriendController as ctrl"><a href="#/myFriends"> MyFriends  </a></li>
+    
+        <li role="separator" class="divider"></li>
+    <li><a href="#/allfriends">Search For a Friend</a></li>
+      </ul>
+</div>
+
+</span>
+
+ <span ng-hide="IsLoggedIn=='true'">
+ 
+ <div class="btn-group col-md-offset-2">
+ <a href="#/register"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Register  </button></a>
+  </div>
+   
+ <div class="btn-group">
+<a href="#/login"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Login  </button></a>
+  </div> 
+  </span>
+  
+  <span ng-show="IsLoggedIn=='true'">
+  <div class="btn-group col-md-offset-2" ng-controller="UserController as ctrl">
+ <button type="button" class="btn btn-default dropdown-toggle" ng-click="ctrl.logout()" data-toggle="dropdown">
+    Logout  </button>
+  </div>
+  
+   
+  </span>
+  
+  
+ <!--   <div class="btn-group">
+<a href="#/users"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Test  </button></a>  
+  </div> --> 
+  
+  
+   <div class="btn-group">
+<a href="#/chat"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Chat  </button></a>  
+  </div> 
+  
+   <div class="btn-group">
+<a href="#/upload"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    FileUpload  </button></a>  
+  </div> 
+  
+  
+</header>
+
+
+
+
+ <div ng-view="">
+
+</div>
+
+<div ng-include src="'footer.html'"></div>
+
+
+
+
+</body>
+
+<script src="resources/js/angular.js"></script>
+<script src="resources/js/angular-route.min.js"></script>
+<script src="resources/js/sockjs.min.js"></script>
+<script src="resources/js/stomp.min.js"></script>
+<script src="app.js"></script>
+<script src="c_user/UserController.js"></script>
+<script src="c_user/UserServices.js"></script>
+<script src="c_blog/BlogController.js"></script>
+<script src="c_blog/BlogServices.js"></script>
+<script src="c_friend/FriendController.js"></script>
+<script src="c_friend/FriendServices.js"></script>
+<script src="c_event/EventController.js"></script>
+<script src="c_event/EventServices.js"></script>
+<script src="c_chatforum/ChatForumController.js"></script>
+<script src="c_chatforum/ChatForumServices.js"></script>
+<script src="c_job/JobController.js"></script>
+<script src="c_job/JobServices.js"></script>
+
+
+</html>

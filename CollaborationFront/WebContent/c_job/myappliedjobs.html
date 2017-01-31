@@ -1,0 +1,56 @@
+  <span ng-show="IsLoggedIn=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<div ng-controller="JobController as ctrl">
+
+     <div class="col-md-10">
+
+
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>UserName</span></th>
+                                <th><span>JobId</span></th>
+                                <th class="text-center"><span>Date Applied</span></th>
+                                <th><span>Status</span></th>
+								 <th><span>Remarks</span></th>								 
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>  
+                            
+                                <tr ng-repeat="job in ctrl.myJobapplications">
+                                   
+ 									<td>
+ 									{{job.username}}
+                                    </td>
+
+                                    <td>{{job.jobId}}</td>
+                                    
+                                    <td class="text-center">
+                                   
+										 {{job.date_Applied}}
+										  
+                                    </td>
+                                   
+                                    <td><a href="#" style="text-decoration: none" >{{job.status}}</a> </td>
+                                    
+                                    <td ><a href="#" style="text-decoration: none" >{{job.remarks}}</a> </td>
+                                    
+                                          </tr>
+                            </tbody>
+                        </table>
+                 
+            </div>
+        </div>
+    </div>
+
+<!-- 
+</body>
+</html> -->

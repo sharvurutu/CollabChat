@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" href="css/style1.css">
+ <link rel="stylesheet" type="text/css" href="css/adminnavbar1.css">
+ 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header>
+
+<div class="header1">
+<img src="Images/logo3.jpg" width="100" height="100" class="header1">
+<input placeholder="Search Here,.,." type="text" id="searcharea">
+
+
+
+<div class="btn-group" >
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Groups <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createforum">Create Group</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">All Groups</a></li>
+      </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Blogs <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createblog">Create Blog</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#/bloghome">Read Blogs</a></li>
+      </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Events <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createevent">Create Event</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#/eventhome">All Event</a></li>
+      </ul>
+</div>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Friends <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Friend Lists</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">Search For a Friend</a></li>
+      </ul>
+</div>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Logout <span class="caret"></span>
+  </button>
+  </div>
+ </div>
+</header>
+
+
+<div class="col-md-2">
+
+<div class="panel panel-default">
+  <div class="panel-heading">Groups</div>
+  <marquee onmouseover="this.stop()" onmouseout="this.start()">
+  <div class="panel-body">
+    Group1
+  </div>
+  <div class="panel-body">
+    Group2
+  </div>
+  <div class="panel-body">
+    Group3
+  </div>
+  <div class="panel-body">
+    Group4
+  </div>
+  </marquee>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+</div>
+
+<br>
+
+
+
+ <div ng-view="">
+
+</div>
+</body>
+<script src="resources/js/angular.js"></script>
+<script src="resources/js/angular-route.min.js"></script>
+<script src="app.js"></script>
+
+</html>

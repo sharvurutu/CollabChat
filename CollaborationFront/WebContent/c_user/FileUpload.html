@@ -1,0 +1,20 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+http://localhost:8088/collaborationback/upload"
+<body> -->
+<div class="container" ng-controller="UserController as ctrl">
+<form method="POST" action="http://localhost:8080/collaborationback/upload" enctype="multipart/form-data" ng-submit="ctrl.fileUpload()">
+File to Upload<input type="file" name="uploadFile"><br>
+<input  type="submit" value="Upload">
+
+
+
+</form>
+</div>
+<!-- 
+</body>
+</html> -->

@@ -1,0 +1,59 @@
+  <span ng-show="IsLoggedIn=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<div ng-controller="FriendController as ctrl">
+
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>User</span></th>
+                                <th><span>Mobile</span></th>
+                                <th class="text-center"><span>Status</span></th>
+                                <th><span>UserName</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                                <tr ng-repeat="user in ctrl.users">
+                                   
+ <td>
+                                        <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="#">{{user.fname}} {{user.fname}}</a><br>
+                                        <span class="user-subhead">{{user.role}}</span>
+                                    </td>
+
+                                    <td>{{user.mobile}}</td>
+                                    
+                                    <td class="text-center">
+<!--                                                 <span ng-hide="IsSentFriendRequest'true'">
+ -->                                    
+										  <button type="button" ng-click="ctrl.send(user.username)" class="btn btn-primary">Add Friend</button></span>
+										  
+                                    </td>
+                                   
+                                    <td>
+                                        <a href="#" style="text-decoration: none" >{{user.username}}</a>
+                                   
+ </td>
+                                         </tr>
+                            </tbody>
+                        </table>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div><!-- 
+</body>
+</html> -->

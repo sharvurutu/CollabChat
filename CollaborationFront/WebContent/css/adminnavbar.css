@@ -1,0 +1,58 @@
+#navMenu{
+	
+	margin:0;
+	padding: 0;
+	
+}
+
+#navMenu ul{
+	
+	margin: 0;
+	
+	padding:0;
+	line-height: 30px;
+}
+
+#red{
+	color: red;
+}
+
+#navMenu li{
+	margin-right:80px;
+	
+	padding: 0;
+	list-style: none;
+	float: left;
+	position: relative;
+	background: #999;
+	
+}
+
+#navMenu ul li a{
+	text-align:center;
+	text-decoration: none;
+	display: block;
+	height: 30px;
+	width: 150px;
+	font-family: sans-serif;
+	color: #fff;
+	border: 1px solid black;
+	text-shadow: 1px 1px 1px #000;
+		
+}
+
+#navMenu ul ul{
+	position: absolute;
+	visibility: hidden;
+	
+}
+
+#navMenu ul li:hover ul{
+	visibility: visible;
+	
+}
+
+#navMenu li:hover{
+	
+	background: #0084c6;
+}

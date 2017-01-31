@@ -1,0 +1,82 @@
+<!-- <html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head> -->
+<!-- <body> -->
+
+  <span ng-show="IsLoggedIn=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<div ng-controller="FriendController as ctrl">
+{{empty}}
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-10">
+
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>User</span></th>
+                                <th><span>Mobile</span></th>
+                                <th class="text-center"><span>Status</span></th>
+                                <th><span>Email</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            								
+                                <tr ng-repeat="friend in ctrl.friends">
+                                
+                                
+                                
+                                <span ng-show="!friends.length">
+										<div class="alert alert-danger">
+										  <strong>          There are no request available
+										</strong>                       
+										</div>
+                                </span>
+                                
+                                   
+ <td hide="!friends.length">
+ 
+                                        <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="#">{{friend.fname}} {{friend.fname}}    {{friend.Fn}}</a><br>
+                                        <span class="user-subhead">{{friend.role}}</span>
+                                    </td>
+
+                                    <td>{{friend.mobile}}</td>
+                                    
+                                    <td class="text-center">
+                                                <span ng-hide="friendRequestAccepted=='true'">
+                                    
+										  <button type="button" ng-click="ctrl.acceptFriendRequest(friend.username)" class="btn btn-primary">Accept</button>
+										  
+										  </span>
+										  
+                                    </td>
+                                   
+                                    <td>
+                                        <a href="#" style="text-decoration: none" >{{friend.username}}</a>
+                                   
+ </td>
+ 
+                                         </tr>
+                            </tbody>
+                        </table>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div><!-- 
+</body>
+</html> -->

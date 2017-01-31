@@ -1,0 +1,48 @@
+header{
+	color:#fff;
+	background: linear-gradient(#04519b, #044687, #033769);
+	min-height: 100px;
+}
+
+header form{
+	float: right;
+	padding-top: 25px;
+}
+.panel-heading{
+	background-image: linear-gradient(#04519b, #044687, #033769);
+	color:#fff !important;
+	
+}
+
+h2 {
+		color:#0084c6;
+}
+.red{
+	color: red;
+}
+
+	input[type="text"] {
+		background-color: #FFFFFF;
+		font-size: 15px;
+		padding: 5px;	
+		width: 300px;
+		height:40px;
+		outline: none;
+		margin-bottom: 3px;
+		margin-top: 3px;
+	}
+input[type="text"]:HOVER {
+	border:1px solid #006FC4;
+}
+
+button[type="submit"] {
+	color:#04519b;
+}
+
+label {
+	color:#04519b;
+}
+table.th
+{
+	color: #0084c6;
+}

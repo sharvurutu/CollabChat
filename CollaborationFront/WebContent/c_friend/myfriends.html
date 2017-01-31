@@ -1,0 +1,26 @@
+  <span ng-show="IsLoggedIn=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<div ng-controller="FriendController as ctrl">
+{{empty}}
+
+<h2 align="center" style="color: #0806a9 ;font-family:inherit" >Friends Zone</h2>
+
+
+<p style="color: #0729e7;font-size:20px ">Search Friends Here .,.,
+	<input type="text" ng-model="search_text" placeholder="Type here,.,"></p>
+ 
+ <div ng-repeat ="friend in ctrl.myFriends | filter: search_text">
+ 
+	
+		<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>
+		<img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+         <a href="#" style="text-decoration: none">{{friend}}</a><br>
+ 
+			<hr style="border-width: 10px;color: black">
+
+</div>
+</div>

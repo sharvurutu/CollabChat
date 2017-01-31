@@ -1,0 +1,83 @@
+.header1{
+	color:#fff;
+	background: linear-gradient(#04519b, #044687, #033769);
+	min-height: 100px;
+}
+
+#searcharea{
+	width:500px;
+/* top: 17px;
+left: 240px;
+ */color:black;
+height: 40px;
+background: white;
+padding: 5px;
+outline: none;
+background-position: 456px;
+}
+
+button[type="button"] {
+	color:#04519b;
+}
+
+
+header form{
+	float: right;
+	padding-top: 25px;
+}
+.panel-heading{
+	background-image: linear-gradient(#04519b, #044687, #033769);
+	color:#fff !important;
+	
+}
+
+h2 {
+		color:#0084c6;
+}
+.red{
+	color: red;
+}
+
+	input[type="text"] {
+		background-color: #FFFFFF;
+		font-size: 15px;
+		padding: 5px;	
+		width: 300px;
+		height:40px;
+		outline: none;
+		margin-bottom: 3px;
+		margin-top: 3px;
+	}
+input[type="text"]:HOVER {
+	border:1px solid #006FC4;
+}
+
+button[type="submit"] {
+	color:#04519b;
+}
+
+label {
+	color:#04519b;
+}
+
+
+.dropdown-menu li a{
+	text-align:center;
+ 	display: block;
+	/* height: 80px;
+	width: 150px;
+	 */font-family: sans-serif;
+ 	text-shadow: 1px 1px 1px #000; 
+ 	color: #ffff00;
+}	
+
+.dropdown-menu li{
+	margin-right:20px;
+	padding: 0;
+	list-style: none;
+/* 	float: right;
+ */	position: relative;
+	
+	
+}
+
