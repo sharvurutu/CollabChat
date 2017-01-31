@@ -29,47 +29,42 @@ import com.niit.collaborationbackend.model.User;
 @EnableTransactionManagement
 
 public class ApplicationContextConfig {
-	
-		//create an instance
-		@Bean
-		public SessionFactory sessionFactory() {
-			LocalSessionFactoryBuilder lsf=
-					new LocalSessionFactoryBuilder(getDataSource());
-			Properties hibernateProperties=new Properties();
-			hibernateProperties.setProperty(
-					"hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-			hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
-			hibernateProperties.setProperty("hibernate.show_sql", "true");
-			lsf.addProperties(hibernateProperties);
-			Class classes[]={User.class,Blog.class,Job.class,JobApplication.class,Friend.class,Event.class,Chat.class,Forum.class};
-			return lsf.addAnnotatedClasses(classes)
 
-			   .buildSessionFactory();
-		}
-		@Bean
-		public DataSource getDataSource() {
-		    BasicDataSource dataSource = new BasicDataSource();
-		    dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
-		    dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		    dataSource.setUsername("COLLAB");// Schema name
-			dataSource.setPassword("12345");
-		    return dataSource;
-		}
-		@Bean
-		public HibernateTransactionManager hibTransManagement(){
-			return new HibernateTransactionManager(sessionFactory());
-		}
+	// create an instance
+	@Bean
+	public SessionFactory sessionFactory() {
+		LocalSessionFactoryBuilder lsf = new LocalSessionFactoryBuilder(getDataSource());
+		Properties hibernateProperties = new Properties();
+		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+		hibernateProperties.setProperty("hibernate.show_sql", "true");
+		lsf.addProperties(hibernateProperties);
+		Class classes[] = { User.class, Blog.class, Job.class, JobApplication.class, Friend.class, Event.class,
+				Chat.class, Forum.class };
+		return lsf.addAnnotatedClasses(classes)
 
+				.buildSessionFactory();
+	}
 
-	
+	@Bean
+	public DataSource getDataSource() {
+		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
+		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
+		dataSource.setUsername("COLLAB");// Schema name
+		dataSource.setPassword("12345");
+		return dataSource;
+	}
 
+	@Bean
+	public HibernateTransactionManager hibTransManagement() {
+		return new HibernateTransactionManager(sessionFactory());
+	}
 
-
-	
 	@Autowired
-	@Bean(name="sessionFactory")
-	public SessionFactory getSessionFactory(DataSource dataSource){
-		
+	@Bean(name = "sessionFactory")
+	public SessionFactory getSessionFactory(DataSource dataSource) {
+
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Blog.class);
@@ -79,10 +74,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Chat.class);
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
-return sessionBuilder.buildSessionFactory();
+		return sessionBuilder.buildSessionFactory();
 	}
-	
 
-	
-	
 }
