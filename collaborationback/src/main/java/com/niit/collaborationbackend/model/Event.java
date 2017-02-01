@@ -2,14 +2,16 @@ package com.niit.collaborationbackend.model;
 
 import java.util.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 @Entity
-@Table(name="f_event")
+@Table(name="event26")
 @Component
+
 public class Event extends BaseDomain {
 	@Id
 	private int Id;

@@ -2,7 +2,7 @@
 
 app.factory('BlogServices', ['$http', '$rootScope', '$q',function($http,$rootScope,$q){
 
-	var BaseURL='http://localhost:8080/collaborationback'
+	var BaseURL='http://localhost:8080/collaborationback/'
 	
 	return{
 		

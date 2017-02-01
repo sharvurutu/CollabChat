@@ -17,7 +17,7 @@ public class FileUtil {
 
 /*	private static String path = "D:/Collaboration/collaborationback/src/main/webapp/Images/";
 */	
-	private static String path ="D:/Collaboration/CollaborationFront/WebContent/Images/";
+	private static String path ="E:/2694/CollaborationFront/WebContent/Images/";
 	
 	public static void Upload(MultipartFile file,String filename)
 	{

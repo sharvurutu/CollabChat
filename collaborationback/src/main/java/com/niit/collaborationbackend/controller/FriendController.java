@@ -169,8 +169,8 @@ public class FriendController {
 		
 		else
 		{
-			/*friend.setId(friendDAO.maxID());*/
-			/*friend.setStatus('N');*/
+			friend.setId(friendDAO.maxID());
+			friend.setStatus('N');
 			friend.setIsOnline('N');
 			friend.setUsername(loggedInUserId);
 			friend.setFriendUserName(friendUserName);
@@ -211,7 +211,6 @@ public class FriendController {
 		log.debug("FriendController ====> Starting of the acceptFriendRequest method()");
 
 		friend = acceptOrRejectFriendRequest(friendUserName, 'A');
-	
 		
 		log.debug("FriendController ====> Ending of the acceptFriendRequest method()");
 

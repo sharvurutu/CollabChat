@@ -1,4 +1,4 @@
-var app = angular.module('myapp',['ngRoute']);
+var app = angular.module('myapp',['ngRoute','ngCookies']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -122,7 +122,8 @@ app.config(function($routeProvider){
 	})
 	
 	.when('/allfriends',{
-		templateUrl:'c_friend/allfriends.html'
+		templateUrl:'c_friend/allfriends.html',
+			controller:'FriendController'
 			
 	})
 

@@ -36,8 +36,8 @@ $scope.message="Message From User Contoller"
 );*/
 	
 
-app.controller('UserController',['$scope','UserServices','$location','$rootScope','$http',
-                                 function($scope, UserServices, $location, $rootScope, $http){
+app.controller('UserController',['$scope','UserServices','$location','$rootScope','$http','$cookieStore',
+                                 function($scope, UserServices, $location, $rootScope, $http,$cookieStore){
 	$scope.message="Message From User Contoller"
 		console.log("Starting ==>  UserController")
 
@@ -48,6 +48,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										//console.log(self.user.gender)
 										
 										self.users = [];
+										self.friendUsers = [];
 										
 										
 										//Start of fetchAllUsers function()
@@ -70,7 +71,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										};//end of fetchAllUsers function()
 									
 										
-										
+																				
 										
 										//start of createUser function()
 										self.createUser = function(user){
@@ -113,6 +114,8 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 														else
 															{
 																$rootScope.currentUser = self.user
+																$cookieStore.put("currentUser",self.user)
+																$rootScope.username = self.user.username
 																console.log("Logging in with Email :- "+$rootScope.currentUser.emailId)
 																$rootScope.IsLoggedIn="true"
 																if($rootScope.currentUser.role==='admin')
@@ -125,6 +128,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 																else
 																	{
 																			$rootScope.showProfile="true"
+																				
 																			console.log("UserController ==> Login as "+$rootScope.currentUser.role)
 																			console.log("UserController ==> Ending createUser function()")
 																			$location.path('/blogs')	
@@ -156,6 +160,8 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										self.logoutUser = function()
 										{
+											$rootScope.currentUser = {}
+											$cookieStore.remove("currentUser")
 											UserServices.logout().then
 											(
 													function(d)
@@ -207,6 +213,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										self.logout = function()
 										{
+											
 											self.logoutUser()
 										}
 										
@@ -219,6 +226,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										
 										self.fetchAllUsers();
+
 										
 										//start of reset function
 										self.reset = function(){

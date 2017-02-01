@@ -1,4 +1,4 @@
-"use stict"
+"use strict"
 
 app.factory('JobServices',['$http','$q','$rootScope',function($http,$q,$rootScope)
                           {

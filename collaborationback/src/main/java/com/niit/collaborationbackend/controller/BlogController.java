@@ -45,7 +45,7 @@ public class BlogController {
 	// Get Blog By Id
 	@RequestMapping(value = "/blogById/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Blog> getBlogByID(@PathVariable("id") int blogId) {
-
+		
 		blog = blogDAO.get(blogId);
 		if (blog == null) {
 			blog = new Blog();
@@ -59,20 +59,20 @@ public class BlogController {
 	// Save a new Blog
 	@RequestMapping(value = "/saveBlog/", method = RequestMethod.POST)
 	public ResponseEntity<Blog> saveBlog(@RequestBody Blog blog) {
-		System.out.println(blog.getId());
+		System.out.println(blog.getId());		
 
 		String loggedInUserId = (String) session.getAttribute("loggedInUserId");
-
+		
 		if (loggedInUserId == null) {
 			blog.setErrorCode("404");
-			blog.setErrorMessage("Login is compulsory for blog creation");
-		}
-
+			blog.setErrorMessage("Please login to Create Blog");
+		} 
+		
 		else {
-			System.out.println(blog.getId());
+			System.out.println(blog.getId());		
 			System.out.println(blog.getTittle());
 
-			// Integer blogId = blogDAO.maxID();
+		//	Integer blogId = blogDAO.maxID();
 			blog.setId(blogDAO.maxID());
 			blog.setEmailId(loggedInUserId);
 			blog.setDate_Time(new Date());
@@ -80,10 +80,10 @@ public class BlogController {
 			blog.setReason("New");
 			if (blogDAO.save(blog) == false) {
 				blog.setErrorCode("404");
-				blog.setErrorMessage("Blog was not Created....Try again");
+				blog.setErrorMessage("Blog was not Created.. !! ..!! .. Please Try Again After Some time..!!..!!..");
 			} else {
 				blog.setErrorCode("200");
-				blog.setErrorMessage("Blog is Created SuccessFully......");
+				blog.setErrorMessage("Thank you !!..!!..Blog is Created SuccessFully");
 			}
 		}
 
@@ -94,7 +94,7 @@ public class BlogController {
 	public ResponseEntity<Blog> updateBlog(@RequestBody Blog blog) {
 		if (blogDAO.update(blog) == false) {
 			blog.setErrorCode("404");
-			blog.setErrorMessage("Blog was not Updated... Try again!!!");
+			blog.setErrorMessage("Blog was not Updated.. !! ..!! .. Please Try Again After Some time..!!..!!..");
 		}
 
 		else {

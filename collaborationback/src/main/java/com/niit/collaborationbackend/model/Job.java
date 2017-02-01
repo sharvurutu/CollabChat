@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 
 @Entity
-@Table(name="f_job")
+@Table(name="job26")
 @Component
 public class Job extends BaseDomain {
 	

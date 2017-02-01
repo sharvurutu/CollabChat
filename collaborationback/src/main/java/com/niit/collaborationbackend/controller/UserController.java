@@ -79,6 +79,33 @@ public class UserController {
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 
+	@RequestMapping(value="/getAllFriend",method=RequestMethod.GET)
+	public ResponseEntity<List<User>> getAllFriend() {
+		
+		log.debug("UserController ====> Starting of the getAllFriend method()");
+		
+		String loggedInUserId = (String) session.getAttribute("loggedInUserId");
+		
+		System.out.println("Calling getAllFriend() with "+loggedInUserId);
+
+		List<User> users = userDAO.getall(loggedInUserId);
+
+		if (users.isEmpty()) {
+			user.setErrorCode("404");
+			user.setErrorMessage("No User are available");
+			users.add(user);
+			log.debug("UserController ====> Ending of the getAllFriend method()");
+
+		}
+
+		// errorcode :200 :404
+		// errormessage Success :Not Found
+		log.debug("UserController ====> Ending of the getAllUser method()");
+
+		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+	}
+
+	
 	// Get User by Id
 	// http://localhost:8080/collaboration/allusers/id
 	

@@ -152,8 +152,6 @@
 
   </dependencies>
   <build>
-   
-  
   <plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -165,8 +163,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
- <finalName>collaborationback</finalName>
+  
+    <finalName>collaborationback</finalName>
   </build>
-  
-  
 </project>

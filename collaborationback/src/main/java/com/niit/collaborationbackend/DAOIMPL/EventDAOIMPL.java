@@ -2,8 +2,6 @@ package com.niit.collaborationbackend.DAOIMPL;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -24,7 +22,6 @@ public class EventDAOIMPL implements EventDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	@Transactional
 	public boolean save(Event event) {
 	try {
 		sessionFactory.getCurrentSession().save(event);
@@ -35,7 +32,6 @@ public class EventDAOIMPL implements EventDAO {
 	}
 	}
 
-	@Transactional
 	public boolean delete(Event event) {
 		try {
 			sessionFactory.getCurrentSession().delete(event);
@@ -46,7 +42,6 @@ public class EventDAOIMPL implements EventDAO {
 		}
 	}
 
-	@Transactional
 	public boolean update(Event event) {
 		try {
 			sessionFactory.getCurrentSession().update(event);
@@ -57,12 +52,10 @@ public class EventDAOIMPL implements EventDAO {
 		}
 	}
 
-	@Transactional
 	public Event get(String id) {
 		return (Event) sessionFactory.getCurrentSession().get(Event.class, id);
 	}
 
-	@Transactional
 	public List<Event> list() {
 		String hql= "From Event";
 		Query query= sessionFactory.getCurrentSession().createQuery(hql);

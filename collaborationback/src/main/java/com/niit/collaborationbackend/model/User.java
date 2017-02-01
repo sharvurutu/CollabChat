@@ -9,7 +9,7 @@ import javax.persistence.Transient;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="f_user_details")
+@Table(name="user_details26")
 @Component
 public class User extends BaseDomain {
 	

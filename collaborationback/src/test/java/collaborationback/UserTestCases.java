@@ -83,12 +83,12 @@ public class UserTestCases {
 		System.out.println(u.getMobile());
 	}
 	
-	//@Test
+	/*//@Test
 	public void getMaxId()
 	{
 		System.out.println(jobApplicationDAO.maxID());
 	}
-	
+	*/
 	/*@Test
 	public void test() {
 		fail("Not yet implemented");

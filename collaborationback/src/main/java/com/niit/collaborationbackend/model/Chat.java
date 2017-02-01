@@ -2,17 +2,8 @@ package com.niit.collaborationbackend.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
-
-@Entity
-@Table(name="f_Chat")
-@Component
 public class Chat {
-	@Id
+	
 	private int Id;
 	
 	private String emailId;

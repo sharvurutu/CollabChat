@@ -5,7 +5,7 @@ import javax.persistence.*;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="f_friend")
+@Table(name="friend26")
 @Component
 public class Friend extends BaseDomain {
 	

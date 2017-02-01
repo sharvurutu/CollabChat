@@ -23,6 +23,22 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 				)
 		},//end of fetchAllUsers:function()
 	
+		
+		
+		getAllFriend:function(){
+			console.log("UserServices ==> Starting getAllFriend function()")
+
+			return $http.get(BaseURL+'/getAllFriend')
+			.then(
+					function(Response){
+						console.log("UserServices ==> Ending getAllFriend function()")
+
+						return Response.data;
+					},
+					null
+				)
+		},
+	
 
 		
 		//start of createUser function()

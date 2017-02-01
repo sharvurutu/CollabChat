@@ -7,7 +7,7 @@ import javax.persistence.*;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="f_Job_Applied")
+@Table(name="Job_Applied26")
 @Component
 public class JobApplication extends BaseDomain {
 	

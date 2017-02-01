@@ -24,36 +24,41 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 	
 	    self.users = [];
 	    
-
 	    
-	    self.fetchAllUsers = function(){
-			console.log("FriendController ==> Starting fetchAllUsers function()")
-			UserServices.fetchAllUsers().then
+	    
+	    
+	    
+	    self.getAllFriend = function(){
+			console.log("FriendController ==> Starting getAllFriend function()")
+			UserServices.getAllFriend().then
 			    (
 						function(d){
 							self.users=d;
-							console.log("FriendController ==> Ending fetchAllUsers function()")
+							console.log("FriendController ==> Ending getAllFriend function()")
 
 						},
 						function(errResponse)
 						{
 							console.error("Error  While Getting all the Users detials,.,.,.")
-							console.log("FriendController ==> Ending fetchAllUsers function()")
+							console.log("FriendController ==> Ending getAllFriend function()")
 
 						}
 				)
-		};//end of fetchAllUsers function()
-	
-		self.fetchAllUsers()
+		};
 
-	
+
+	    
+
+	    
+	   		
+		
+		
 		
 
 		 self.sendFriendRequest = function (friendUserName){
 
 			console.log("FriendController ==> Starting sendFriendRequest function()")
 
-			console.log(self.user.emailId)
 			console.log(friendUserName)
 
 			FriendServices.sendFriendRequest(friendUserName).then
@@ -63,6 +68,7 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 						self.friend=d;
 						alert(self.friend.errorMessage)
 						console.log("FriendController ==> Ending sendFriendRequest function()")
+						self.getAllFriend();
 
 					},
 					function(errResponse)
@@ -71,7 +77,8 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 						console.log("FriendController ==> Ending sendFriendRequest function()")
 
 					}
-			)
+			) 
+			
 				
 		},
 		
@@ -82,7 +89,17 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 		{
 			console.log(friendUserName)
 			console.log(self.user.username)
+									console.log("FriendController ==> Starting sendFriendRequest under send function()")
+
 			self.sendFriendRequest(friendUserName)
+									console.log("FriendController ==> Starting getAllFriend under send function()")
+									
+						self.getAllFriend();
+
+			$location.path('/myFriends')
+	
+
+			
 		}
 		
 		self.acceptFriendRequest = function(friendUsername)
@@ -160,7 +177,10 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 		)
 	}
 	
-	self.getMyFriends()
+	self.getMyFriends();
+	
+	self.getAllFriend();
+
 
 	/*self.view = function()
 	{

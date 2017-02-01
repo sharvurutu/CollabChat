@@ -6,19 +6,36 @@
 <!--   </head>
   <body>
  -->    
- <div ng-controller ="ChatForumController as ctrl" class="col-md-offest-4">
+ <div ng-controller ="ChatForumController as ctrl" class="col-md-offest-4" align="center">
    <form ng-submit="addMessage()" name="messageForm">
         <input type="text"  align="center" placeholder="Compose a new message..." ng-model="message" />
-        <div class="info">
+        <div class="info" align="center">
           <span class="count" ng-bind="max - message.length" ng-class="{danger: message.length > max}">140</span>
           <button ng-disabled="message.length > max || message.length === 0" class="btn btn-success">Send</button>
         </div>
       </form>
       <hr />
-      <p ng-repeat="message in messages | orderBy:'time':true" class="message">
+      
+      <div class="panel panel-default" align="center">
+  <div class="panel-body">
+<strong><h4>Chat Conversion</h4 style="color:#04519b"></strong>  </div>
+<div ng-repeat="message in messages | orderBy:'time':true" class="message">
+  <div ng-if="$odd" class="alert alert-warning">  <time>{{message.time | date:'HH:mm'}}</time>
+  <p> <span ng-class="{self: message.self}">{{message.message}}</span></p>
+  </div>
+  
+  
+   <div ng-if="$even" class="alert alert-success">   <time>{{message.time | date:'HH:mm'}}</time>
+  <p><span ng-class="{self: message.self}">{{message.message}}</span></p>
+  </div>
+</div>
+</div>
+</div>
+      
+     <!--  <p ng-repeat="message in messages | orderBy:'time':true" class="message">
         <time>{{message.time | date:'HH:mm'}}</time>
         <span ng-class="{self: message.self}">{{message.message}}</span>
-      </p>
+      </p> -->
 </div>
     <!-- 
 </body>

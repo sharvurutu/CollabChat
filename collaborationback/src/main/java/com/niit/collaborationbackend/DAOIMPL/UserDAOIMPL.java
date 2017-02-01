@@ -6,6 +6,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -78,9 +79,14 @@ public class UserDAOIMPL implements UserDAO {
 		
 		@Transactional
 		public List<User> getall(String username) {
-			String hql = "select * FROM User where username NOT IN '"+username+"'";
-			Query query =  sessionFactory.getCurrentSession().createQuery(hql);
-			return query.list();
+			SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery
+			("select username from user_details where username in (select username from user_details where username != ? minus ("
+					+ "select friendUserName from friend where username = ? union select username from friend where friendUserName= ?))");
+			query.setString(0, username);
+			query.setString(1, username);
+			query.setString(2, username);
+			List<User> users = query.list();
+			return users;
 		}
   
 		@Transactional
