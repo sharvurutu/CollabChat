@@ -80,8 +80,8 @@ public class UserDAOIMPL implements UserDAO {
 		@Transactional
 		public List<User> getall(String username) {
 			SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery
-			("select username from user_details where username in (select username from user_details where username != ? minus ("
-					+ "select friendUserName from friend where username = ? union select username from friend where friendUserName= ?))");
+			("select username from user_details26 where username in (select username from user_details26 where username != ? minus ("
+					+ "select friendUserName from friend26 where username = ? union select username from friend26 where friendUserName= ?))");
 			query.setString(0, username);
 			query.setString(1, username);
 			query.setString(2, username);
