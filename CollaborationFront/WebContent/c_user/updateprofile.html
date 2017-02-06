@@ -1,0 +1,183 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body> -->
+
+
+  <span ng-show="showProfile=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+	<div ng-controller="UserController as ctrl" class="col-md-offset-2">
+		<table class="table"
+			style="background: linear-gradient(white, lightblue);">
+			<tr>
+				<td width="40%" valign="top" style="padding-top: 10px">
+					<center>
+						<h2 style="color: #04519b">
+							Connect Me !! <br>
+						</h2>
+					</center>
+				</td>
+				<td width="30%" style="padding-top: 10px">
+					<h2 style="color: #04519b">Update Your Profile</h2>
+
+
+
+{{currentUser.username}}
+
+
+
+
+
+
+					<form name="form" ng-submit="ctrl.update()" class="form-horizontal"
+						role="form">
+
+						<div class="form-group"
+							ng-class="{'has-error' : form.username.$dirty && form.username.$error.required}">
+							<div class="col-sm-10">
+								<input type="text" class="form-control" placeholder="UserName"
+									ng-model="ctrl.user.username" id="username" name="username" ng-bind="ctrl.user.username" value={{currentUser.username}}
+									ng-init="ctrl.user.username =currentUser.username"
+									required> <span
+									ng-show="form.username.$dirty && form.username.$error.required"
+									class="help-block">Username Is Required</span>
+							</div>
+						</div>
+
+
+						<div class="form-group"
+							ng-class="{'has-error' : form.fname.$dirty && form.fname.$error.required}">
+							<div class="col-sm-10">
+								<input type="text" class="form-control" placeholder="First name"
+									ng-model="ctrl.user.fname" id="fname" name="fname" ng-bind="ctrl.user.fname" value={{currentUser.fname}} 
+									ng-init="ctrl.user.fname =currentUser.fname" required>
+								<span ng-show="form.fname.$dirty && form.fname.$error.required"
+									class="help-block">First name Is Required</span>
+							</div>
+						</div>
+
+						<div class="form-group"
+							ng-class="{'has-error' : form.lname.$dirty && form.lname.$error.required}">
+							<div class="col-sm-10">
+								<input type="text" class="form-control" placeholder="Last Name"
+									ng-model="ctrl.user.lname" id="lname" name="lname" ng-bind="ctrl.user.lname" value={{currentUser.lname}}
+									ng-init="ctrl.user.lname =currentUser.lname" required>
+								<span ng-show="form.lname.$dirty && form.lname.$error.required"
+									class="help-block">Last Name Is Required</span>
+							</div>
+						</div>
+
+						<div class="form-group"
+							ng-class="{'has-error' : form.gender.$dirty && form.gender.$error.required}">
+							-<label class="radio-inline">
+								<h4>
+									<input type="radio" name="gender" ng-model="ctrl.user.gender"
+										id="gender" ng-value="'Male'">Male
+								</h4>
+							</label> <label class="radio-inline">
+								<h4>
+									<input type="radio" name="gender" ng-model="ctrl.user.gender"
+										id="gender" ng-value="'Female'">Female
+								</h4>
+							</label> <span
+								ng-show="form.gender.$dirty && form.gender.$error.required"
+								class="help-block">Gender Is Required</span>
+
+						</div>
+
+						<div class="form-group"
+							ng-class="{'has-error' : form.emailId.$dirty && form.emailId.$error.required}">
+							<div class="col-sm-10">
+								<input type="text" class="form-control" placeholder="Email Id"
+									ng-model="ctrl.user.emailId" id="emailId" name="emailId" ng-bind="ctrl.user.emailId" value={{currentUser.emailId}}
+									ng-init="ctrl.user.emailId =currentUser.emailId" required> <span
+									ng-show="form.emailId.$dirty && form.emailId.$error.required"
+									class="help-block">Email Id Is Required</span>
+
+							</div>
+						</div>
+
+						<div class="form-group"
+							ng-class="{'has-error' : form.mobile.$dirty && form.mobile.$error.required}">
+							<div class="col-sm-10">
+								<input type="text" class="form-control"
+									placeholder="Mobile number" ng-model="ctrl.user.mobile"
+									id="mobile" name="mobile" ng-bind="ctrl.user.mobile" value={{currentUser.mobile}}
+									ng-init="ctrl.user.mobile =currentUser.mobile" required> <span
+									ng-show="form.mobile.$dirty && form.mobile.$error.required"
+									class="help-block">Mobile number Is Required</span>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="radio-inline">
+								<h4>
+									<input type="radio" name="role" ng-model="ctrl.user.role"
+										ng-value="'Employee'" id="role" value={{currentUser.role}}
+									ng-init="ctrl.user.role =currentUser.role">Employee
+								</h4>
+							</label> <label class="radio-inline">
+								<h4>
+									<input type="radio" name="role" ng-model="ctrl.user.role"
+										ng-value="'Alumini'" id="role" value={{currentUser.role}}
+									ng-init="ctrl.user.role =currentUser.role">Alumini
+								</h4>
+							</label> <label class="radio-inline">
+								<h4>
+									<input type="radio" name="role" ng-model="ctrl.user.role"
+										ng-value="'Student'" id="role" value={{currentUser.role}}
+									ng-init="ctrl.user.role =currentUser.role">Student
+								</h4>
+							</label>
+						</div>
+						<div class="form-group"
+							ng-class="{'has-error' : form.password.$dirty && form.password.$error.required}">
+							<div class="col-sm-10">
+								<input type="password" class="form-control"
+									placeholder="Password" ng-model="ctrl.user.password"
+									id="password" name="password" ng-bind="ctrl.user.password" value={{currentUser.password}}
+									ng-init="ctrl.user.password =currentUser.password" required> <span
+									ng-show="form.password.$dirty && form.password.$error.required"
+									class="help-block">Password Is Required</span>
+
+							</div>
+						</div>
+						<!-- 
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input type="password" class="form-control" placeholder="Re-Type password" ng-model="ctrl.user.conPassword">
+    </div>
+  </div>
+   -->
+						<div class="col-sm-6">
+
+							<div class="form-group">
+								<div class="col-sm-6">
+									<button type="submit" class="btn btn-default btn-lg">Update
+										Profile</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6"></div>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+
+
+<!-- 
+
+
+
+
+
+</body>
+</html> -->

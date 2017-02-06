@@ -19,7 +19,7 @@ app.factory('ChatForumServices',function($q,$timeout){
 	
 //	service.socketURL = '/collaborationback/chat_forum';
 	
-	service.socketURL ='http://localhost:8080/collaborationback/chat_forum'
+	service.socketURL ='http://localhost:8080/collaborationback/chat_forum';
 	
 	service.chatTopic = '/topic/message';
 	

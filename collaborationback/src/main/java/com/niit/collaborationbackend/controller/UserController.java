@@ -205,7 +205,7 @@ public class UserController {
 	}
 
 	
-	@RequestMapping(value = "/UpdateUser", method = RequestMethod.PUT)
+	@RequestMapping(value = "/UpdateUser/", method = RequestMethod.PUT)
 	public ResponseEntity<User> updateUser(@RequestBody User user) {
 		log.debug("UserController ====> Starting of the updateUser method()");
 

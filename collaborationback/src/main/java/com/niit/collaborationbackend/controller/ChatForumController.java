@@ -21,7 +21,7 @@ public class ChatForumController {
 	{
 		log.debug("ChatForumController ====> Starting of the sendMessage method()");
 
-		log.debug("Message:-   ",message.getMessage());
+		log.debug("Message:- ",message.getMessage());
 
 		log.debug("ChatForumController ====> Ending of the sendMessage method()");
 
