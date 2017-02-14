@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collaborationbackend.DAO.JobApplicationDAO;
-import com.niit.collaborationbackend.DAOIMPL.JobApplicationDAOIMPL;
+import com.niit.collaborationbackend.DAO.Impl.JobApplicationDAOIMPL;
 import com.niit.collaborationbackend.model.JobApplication;
 
 @RestController

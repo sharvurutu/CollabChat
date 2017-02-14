@@ -1,32 +1,41 @@
-  <span ng-show="showProfile=='true'">
-<div ng-include src="'c_user/profile.html'"></div>
+
+<span ng-show="showProfile=='true'">
+	<div ng-include src="'c_user/profile.html'"></div>
 </span>
 
-  <span ng-show="isAdmin=='true'">
-<div ng-include src="'c_admin/adminNavbar.html'"></div>
+<span ng-show="isAdmin=='true'">
+	<div ng-include src="'c_admin/adminNavbar.html'"></div>
 </span>
 
 <div ng-controller="BlogController as ctrl" class="col-md-offset-2">
 
 
-<h2 align="center" style="color: #0806a9 ;font-family:inherit" >List of All Blogs</h2>
-<br>
-	 
- <p style="color: #0729e7;font-size:20px ">Search for the Blogs
-	<input type="text" ng-model="search_text" placeholder="Type here,.,"></p>
- 
- <div ng-repeat ="blog in ctrl.blogs | filter: search_text">
-	
-		<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>
-		 <div class="alert alert-success">			
-		<h4 >Blog Tittle:- {{blog.tittle}} </h4>
-		<div class="alert alert-success fade in">
-						<h4 style="font-family: Monotype Corsiva;font-size:32px">{{blog.description}}</h4>					
-		
-		 <h4 align="right" style="color: #e87e13 ">Blog Witten By:- {{blog.emailId}}</h4>
-		
-		</div></div>
-		<hr style="border-width: 10px;color: black">
+	<h2 align="center" style="color: grey; font-family: Monotype Corsiva">List
+		Of All Blogs</h2>
+	<br>
+
+	<p style="color: grey; font-size: 20px">
+		<img src="images/search-icon.png" alt=" " class="img-responsive">Search
+		Blogs<input type="text" ng-model="search_text"
+			placeholder="search here....">
+	</p>
+
+	<div ng-repeat="blog in ctrl.blogs | filter: search_text  ">
+
+		<span class="glyphicon glyphicon-user " style="color: grey"></span>
+		<div class="alert alert-success">
+			<h4 style="color: grey">Blog Tittle:- {{blog.tittle}}</h4>
+			<div class="alert alert-success fade in">
+				<h4
+					style="color: grey; font-family: Monotype Corsiva; font-size: 32px">{{blog.description}}</h4>
+
+				<h4 align="right" style="color: grey">Created By :-
+					{{blog.emailId}}</h4>
+
+
+			</div>
+		</div>
+		<hr style="border-width: 10px; color: black">
 	</div>
- 
- </div>
+
+</div>

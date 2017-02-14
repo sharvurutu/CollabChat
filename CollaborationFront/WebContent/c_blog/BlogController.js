@@ -53,7 +53,7 @@ app
 										// console.log(self.blog.Id)
 
 										console
-												.log("BlogController=====>Starting createBlog function()=====>")
+												.log("BlogController==Starting createBlog function()")
 
 										BlogServices
 												.createBlog(blog)
@@ -66,15 +66,15 @@ app
 															$location
 																	.path('/blogs')
 															console
-																	.log("BlogController=====>Ending createBlog function()=====>")
+																	.log("BlogController==Ending createBlog function()")
 
 														},
 														function(errResponse) {
-															alert("Error while Creating Blog,,., Please try Again after sometime,.,.. ")
+															alert("Error while Creating Blog...Please try Again after sometime ")
 															console
-																	.log("Error while Creating Blog,,., Please try Again after sometime,.,.. ")
+																	.log("Error while Creating Blog.... Please try Again after sometime... ")
 															console
-																	.log("BlogController=====>Ending createBlog function()=====>")
+																	.log("BlogController==Ending createBlog function()")
 
 														})
 									},// end of the createBlog function()

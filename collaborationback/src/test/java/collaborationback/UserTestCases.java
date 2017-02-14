@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.niit.collaborationbackend.DAO.JobApplicationDAO;
 import com.niit.collaborationbackend.DAO.UserDAO;
-import com.niit.collaborationbackend.DAOIMPL.JobDAOIMPL;
+import com.niit.collaborationbackend.DAO.Impl.JobDAOIMPL;
 import com.niit.collaborationbackend.model.User;
 
 import junit.framework.Assert;
