@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.niit.collaborationbackend.DAO.BlogCommentsDAO;
 import com.niit.collaborationbackend.DAO.BlogDAO;
 import com.niit.collaborationbackend.model.Blog;
+import com.niit.collaborationbackend.model.BlogComments;
 
 @RestController
 public class BlogController {
@@ -25,6 +27,12 @@ public class BlogController {
 
 	@Autowired
 	BlogDAO blogDAO;
+	
+	@Autowired
+	BlogCommentsDAO blogCommentDAO;
+	
+	@Autowired
+	BlogComments blogComments;
 
 	@Autowired(required = false)
 	HttpSession session;
@@ -104,5 +112,64 @@ public class BlogController {
 
 		return new ResponseEntity<Blog>(blog, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/postBlogComment/{blogId}/{comment}", method = RequestMethod.POST)
+	public ResponseEntity<Blog> postBlogComment(@PathVariable("blogId") Integer blogId,@PathVariable("comment") String comment) {
+		System.out.println(blog.getId());		
 
+		String loggedInUserId = (String) session.getAttribute("loggedInUserId");
+		
+		if (loggedInUserId == null) {
+			blog.setErrorCode("404");
+			blog.setErrorMessage("Please login to Create Blog");
+		} 
+		
+		else {
+		//	System.out.println(blog.getId());		
+			//System.out.println(blog.getTittle());
+
+		//	Integer blogId = blogDAO.maxID();
+			blogComments.setId(blogCommentDAO.maxID());
+			blogComments.setUsername(loggedInUserId);
+			blogComments.setBlogId(blogId);
+			blogComments.setUserComment(comment);
+			if (blogCommentDAO.postComment(blogComments)== false) {
+				blogComments.setErrorCode("404");
+				blogComments.setErrorMessage("BlogComment was not updated.. !! ..!! .. Please Try Again After Some time..!!..!!..");
+			} else {
+				blogComments.setErrorCode("200");
+				blogComments.setErrorMessage("Thank you !!..!!..BlogComment is posted SuccessFully");
+			}
+		}
+
+		return new ResponseEntity<Blog>(blog, HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value = "/allBlogComments", method = RequestMethod.GET)
+	public ResponseEntity<List<BlogComments>> allBlogComments () {
+		List<BlogComments> allblogComments = blogCommentDAO.allBlogComments();
+		if (allblogComments.isEmpty()) {
+			blogComments.setErrorCode("404");
+			blogComments.setErrorMessage("No Blogs Were Found");
+			allblogComments.add(blogComments);
+		}
+
+		return new ResponseEntity<List<BlogComments>>(allblogComments, HttpStatus.OK);
+	}
+
+	
+	@RequestMapping(value = "/blogComments/{blogId}", method = RequestMethod.GET)
+	public ResponseEntity<List<BlogComments>> BlogComments (@PathVariable("blogId") Integer blogId) {
+		List<BlogComments> allblogComments = blogCommentDAO.blogComment(blogId);
+		if (allblogComments.isEmpty()) {
+			blogComments.setErrorCode("404");
+			blogComments.setErrorMessage("No Blogs Were Found");
+			allblogComments.add(blogComments);
+		}
+
+		return new ResponseEntity<List<BlogComments>>(allblogComments, HttpStatus.OK);
+	}
+
+	
 }

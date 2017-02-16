@@ -1,4 +1,36 @@
-  <span ng-show="IsLoggedIn=='true'">
+   <span ng-show="IsLoggedIn=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<div ng-controller="FriendController as ctrl">
+{{empty}}
+
+<h2 align="center" style="color: grey ;font-family:inherit; border-style: double;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 20px;
+    margin-left: 250px;
+    font-family: Monotype Corsiva;
+    background-color: lightgrey" >Friends Zone</h2>
+
+
+<p style="color: #0729e7;font-size:20px ">Search Friends Here .,.,
+	<input type="text" ng-model="search_text" placeholder="Type here,.,"></p>
+ 
+ <div ng-repeat ="friend in ctrl.myFriends | filter: search_text">
+ 
+	
+		<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>
+				<img src="images/{{friend}}.jpg" class="img-circle" alt="UserName" width="150px">
+		
+         <a href="#" style="text-decoration: none">{{friend}}</a><br>
+ 
+			<hr style="border-width: 10px;color: black">
+
+</div>
+</div> <!-- <span ng-show="IsLoggedIn=='true'">
 <div ng-include src="'c_user/profile.html'"></div>
 </span>
 
@@ -17,11 +49,11 @@
  
 	
 		<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>
-				<img src="Images/{{friend}}.jpg" alt="UserName" width="150px">
+				<img src="images/{{friend}}.jpg" alt="UserName" width="150px">
 		
          <a href="#" style="text-decoration: none">{{friend}}</a><br>
  
 			<hr style="border-width: 10px;color: black">
 
 </div>
-</div>
+</div> -->

@@ -1,67 +1,85 @@
-<div class="col-md-2 jumbotron jumbotron-default"
-	ng-controller="UserController as ctrl">
-	
-	<div class="jumbotron-heading">
-		<h3 style="color: grey;font-family: Monotype Corsiva; font-size: 32px">My
-			Profile</h3>
+<div class="col-md-2 jumbotron jumbotron-default" ng-controller="UserController as ctrl">
+<br><br>
+<div class="jumbotron-heading">
+<h3 style="font-family: Monotype Corsiva;font-size:32px">My Profile</h3>
 
-	</div>
-
-
-	<div class="panel-body">
-		<img src="images/{{currentUser.username}}.jpg" class="img-hexagon"
-			width="150px">
-
-	</div>
-
-	<!-- <div class="panel-body">
-
-		<h5>{{currentUser.username}}</h5>
-	</div> -->
-	<!-- <div class="panel-body">
+   </div>
+	     
+        <!--  <div class="panel-body">
+         		   <img src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm" class="img-circle">
+         
+         </div> -->
+         
+         <div class="panel-body">
+         		   <img src="images/{{currentUser.username}}.jpg" class="img-circle" width="150px">
+         
+         </div>
+         
+         <div class="panel-body">
+      
+        		       <h4>Name :- </h4>
    
-		       <h5>{{currentUser.emailId}}</h5>
-   </div>  -->
-	<div class="panel-body">
+		       <h5 style="color: blue">{{currentUser.fname}} {{currentUser.lname}}</h5>
+   </div> 
+   
+     
+       <div class="panel-body">
+    
+     		       <h4>UserName :- </h4>
+     
+		       <h5 style="color: blue">{{currentUser.username}}</h5>
+	
+	  </div>
+		       
+          <div class="panel-body">
+      
+        		       <h4>Email :- </h4>
+   
+		       <h5 style="color: blue">{{currentUser.emailId}}</h5>
+   </div> 
+   
+   <div class="panel-body">
+      
+        		       <h4>Mobile :- </h4>
+   
+		       <h5 style="color: blue">{{currentUser.mobile}}</h5>
+   </div> 
+   
+   
+   		        <div class="panel-body">
+   		 
+  <div class="btn-group" ng-controller="FriendController as ctrl">
+<a href="#/viewfriendrequest"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: blue">
+    ViewFriendRequest  </button></a>       </div></div>
+    
 
-		<div class="btn-group" ng-controller="FriendController as ctrl">
-			<a href="#/viewfriendrequest"><button type="button"
-					class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-					style="color: grey">AllFriendRequest</button></a>
-		</div>
-	</div>
-
-
-	<div class="panel-body">
-		<div class="btn-group" ng-controller="JobController as ctrl">
-			<a href="#/myappliedjobs"><button type="button"
-					class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-					style="color: grey">AllAppliedJobs</button></a>
-
-		</div>
-	</div>
-
-
-	<div class="panel-body">
-		<div class="btn-group" ng-controller="FriendController as ctrl">
-			<a href="#/myFriends"><button type="button"
-					class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-					style="color: grey">MyFriends</button></a>
-
-		</div>
-
-		<div class="panel-body">
-			<div class="btn-group">
-				<a href="#/upload"><button type="button"
-						class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-						style="color: grey">ProfilePicture</button></a>
-			</div>
-		</div>
-
-
-
-	</div>
-
-
-
+ 	                 <div class="panel-body">
+ 	   <div class="btn-group" ng-controller="JobController as ctrl">
+<a href="#/myappliedjobs"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: blue">
+    MyAppliedJobs  </button></a>
+ 	   
+ 	   </div></div>
+ 	   
+ 	   
+ 	                 <div class="panel-body">
+ 	   <div class="btn-group" ng-controller="FriendController as ctrl">
+<a href="#/updateProfile"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: blue">
+    Update  </button></a>
+ 	   
+ 	   </div>
+ 	   </div>
+ 	   
+ 	   <div class="panel-body">
+ 	    <div class="btn-group">
+<a href="#/upload"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: blue">
+    ProfilePic  </button></a>  
+  </div> 
+ 	   </div>
+ 	   
+ 	   
+ 	  
+ 	   
+        
+       
+	          	 
 </div>

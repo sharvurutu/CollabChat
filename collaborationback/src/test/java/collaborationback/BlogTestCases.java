@@ -37,7 +37,7 @@ public class BlogTestCases {
 	//@Test
 	public void CreateBlogTestCase() {
 		//blog.setId(2);
-		blog.setEmailId("ankur2.baghel92@gmail.com");
+		blog.setEmailId("rutu956177@gmail.com");
 		blog.setDescription("First Blog");
 		blog.setReason("NO");
 		Timestamp t = new Timestamp(System.currentTimeMillis());
@@ -60,7 +60,7 @@ public class BlogTestCases {
 	// @Test
 	 public void UpdateBlogTestCase(){
 		 	//blog.setId("2");
-			blog.setEmailId("ankur2.baghel92@gmail.com");
+			blog.setEmailId("rutu956177@gmail.com");
 			blog.setDescription("Second Blog");
 			blog.setReason("NO");
 			Timestamp t = new Timestamp(System.currentTimeMillis());

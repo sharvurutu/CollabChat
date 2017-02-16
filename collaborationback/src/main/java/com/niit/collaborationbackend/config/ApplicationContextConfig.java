@@ -16,8 +16,7 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.collaborationbackend.model.Blog;
-import com.niit.collaborationbackend.model.BlogComment;
-import com.niit.collaborationbackend.model.BlogPost;
+import com.niit.collaborationbackend.model.BlogComments;
 import com.niit.collaborationbackend.model.Chat;
 import com.niit.collaborationbackend.model.Event;
 import com.niit.collaborationbackend.model.Forum;
@@ -42,8 +41,8 @@ public class ApplicationContextConfig {
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
 		Class classes[] = { User.class, Blog.class, Job.class, JobApplication.class, Friend.class, Event.class,
-				Chat.class, Forum.class,BlogPost.class,BlogComment.class};
- 
+				Chat.class, Forum.class, BlogComments.class };
+
 		return lsf.addAnnotatedClasses(classes)
 
 				.buildSessionFactory();
@@ -77,8 +76,8 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Chat.class);
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
-		sessionBuilder.addAnnotatedClass(BlogPost.class);
-		sessionBuilder.addAnnotatedClass(BlogComment.class);
+		sessionBuilder.addAnnotatedClass(BlogComments.class);
+
 		return sessionBuilder.buildSessionFactory();
 	}
 

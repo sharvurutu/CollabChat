@@ -1,85 +1,134 @@
 "use strict"
 
-app.factory('BlogServices', ['$http', '$rootScope', '$q',function($http,$rootScope,$q){
+app
+		.factory(
+				'BlogServices',
+				[
+						'$http',
+						'$rootScope',
+						'$q',
+						function($http, $rootScope, $q) {
 
-	var BaseURL='http://localhost:8080/collaborationback/'
-	
-	return{
-		
-		//start of fetchAllBlogs function()
-		fetchAllBlogs:function(){
-			return $http.get(BaseURL+'/allBlogs').then(
-					function(Response){
-						return Response.data;
-					},
-					function(errResponse){
-						return $q.reject(errResponse);
-					}
-			)
-		},//end of fetchAllBlogs function()
-		
-		
-		
-		//start of createBlog function()
-		createBlog:function(blog){
-			console.log(blog.Id)
+							var BaseURL = 'http://localhost:8080/collaborationback'
 
-			console.log("BlogServices=====>Starting createBlog function()=====>")
+							return {
 
-			return $http.post(BaseURL+'/saveBlog/',blog).then(
-				function(Response){
-					return Response.data;
-					console.log("BlogServices=====>Ending createBlog function()=====>")
+								// start of fetchAllBlogs function()
+								fetchAllBlogs : function() {
+									return $http.get(BaseURL + '/allBlogs')
+											.then(function(Response) {
+												return Response.data;
+											}, function(errResponse) {
+												return $q.reject(errResponse);
+											})
+								},// end of fetchAllBlogs function()
 
-				},
-				function(errResponse){
-					$q.reject(errResponse);
-					console.log("BlogServices=====>Ending createBlog function()=====>")
+								// start of createBlog function()
+								createBlog : function(blog) {
+									console.log(blog.Id)
 
-				}
-			)
-		},//end of createBlog function()
-		
-		
-		updateBlog : function(blog)
-		{
-			return $http.put(BaseUrl+'/udpateBlog',event).then
-			(
-					function(Response)
-					{
-						return Response.data;
-					},
-					function(errReponse)
-					{
-						return $q.reject(errResponse)
-					}
-					
-			)
-		},
-		
-		
-		
-		
-		//start of getBlog function()
-		getBlogbyId:function(id){
-			console.log("BlogServices=====>Starting getBlogbyId function()=====>")
+									console
+											.log("BlogServices=====>Starting createBlog function()=====>")
 
-			return $http.get(BaseURL+'/blogById/'+id).then(
-					function(Response){
-						console.log("BlogServices=====>Ending getBlogbyId function()=====>")
-						return Response.data;
-					},
-					function(errResponse)
-					{
-						console.log("BlogServices=====>Ending getBlogbyId function()=====>")
-						$q.reject(errResponse)
-					}
-					
-			)
-		},//end of getBlog function()
-		
-		
-	}
-}])
+									return $http
+											.post(BaseURL + '/saveBlog/', blog)
+											.then(
+													function(Response) {
+														return Response.data;
+														console
+																.log("BlogServices=====>Ending createBlog function()=====>")
 
+													},
+													function(errResponse) {
+														$q.reject(errResponse);
+														console
+																.log("BlogServices=====>Ending createBlog function()=====>")
 
+													})
+								},// end of createBlog function()
+
+								updateBlog : function(blog) {
+									return $http.put(BaseUrl + '/udpateBlog',
+											event).then(function(Response) {
+										return Response.data;
+									}, function(errReponse) {
+										return $q.reject(errResponse)
+									}
+
+									)
+								},
+
+								// start of getBlog function()
+								getBlogbyId : function(id) {
+									console
+											.log("BlogServices=====>Starting getBlogbyId function()=====>")
+
+									return $http
+											.get(BaseURL + '/blogById/' + id)
+											.then(
+													function(Response) {
+														console
+																.log("BlogServices=====>Ending getBlogbyId function()=====>")
+														return Response.data;
+													},
+													function(errResponse) {
+														console
+																.log("BlogServices=====>Ending getBlogbyId function()=====>")
+														$q.reject(errResponse)
+													}
+
+											)
+								},// end of getBlog function()
+
+								postBlogComment : function(blogId, comment) {
+									console
+											.log("BlogServices=====>Starting postBlogComment function()=====>")
+
+									return $http
+											.post(
+													BaseURL
+															+ '/postBlogComment/'
+															+ blogId + "/"
+															+ comment)
+											.then(
+													function(Response) {
+														console
+																.log("BlogServices=====>Ending postBlogComment function()=====>")
+														return Response.data;
+													},
+													function(errResponse) {
+														console
+																.log("BlogServices=====>Ending postBlogComment function()=====>")
+														$q.reject(errResponse)
+													}
+
+											)
+								},// end of getBlog function()
+
+								allBlogComments : function() {
+									return $http.get(
+											BaseURL + '/allBlogComments').then(
+											function(Response) {
+												return Response.data;
+											}, function(errResponse) {
+												return $q.reject(errResponse);
+											})
+								},// end of allBlogComments function()
+
+								blogComments : function(blogId) {
+									console
+											.log("BlogServices=====>Calling blogComments function() with BLOGID=====>"
+													+ blogId)
+									return $http
+											.get(
+													BaseURL + '/blogComments/'
+															+ blogId)
+											.then(function(Response) {
+												return Response.data;
+											}, function(errResponse) {
+												return $q.reject(errResponse);
+											})
+								}
+
+							}
+						} ])

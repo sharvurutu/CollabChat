@@ -62,7 +62,7 @@ public class UserTestCases {
 		
 		System.out.println(user.getPassword());
 		System.out.println(user.getFname());
-	//	Assert.assertEquals("Get One user Test Case", null, userDAO.get("ankur.baghel92@gmail.com"));
+	;
 	}
 
 	
@@ -75,23 +75,11 @@ public class UserTestCases {
 	//@Test
 	public void IsValidUserTestCase(){
 		
-		//Assert.assertEquals("IsValidUserTestCAse", 1, userDAO.IsValidUser("ankur.baghel92@gmail.com", "Ankurb92"));
 		
-		User u = userDAO.IsValidUser("ankur.baghel92@gmail.com", "Ankurb92");
+		User u = userDAO.IsValidUser("rutu956177@gmail.com", "Ankurb92");
 		System.out.println("--------------------------------------------------------------------------------------->"+u.getFname());
 		System.out.println(u.getIsOnline());
 		System.out.println(u.getMobile());
 	}
 	
-	/*//@Test
-	public void getMaxId()
-	{
-		System.out.println(jobApplicationDAO.maxID());
-	}
-	*/
-	/*@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-*/
 }
